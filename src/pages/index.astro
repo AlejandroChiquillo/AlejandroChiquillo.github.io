@@ -11,8 +11,11 @@ import "../styles/global.css";
 		<title>Alex Chiquillo</title>
 		<style>
 			@keyframes marquee {
+				from {
+					transform: translateX(0);
+				}
 				to {
-					transform: translateX(-50%);
+					transform: translateX(calc(-100% - 2rem));
 				}
 			}
 			@keyframes spin {
@@ -24,49 +27,59 @@ import "../styles/global.css";
 				}
 			}
 			.animate-marquee {
-				animation: marquee 25s linear infinite;
+				animation: marquee 30s linear infinite reverse;
 			}
 			.animate-spin {
 				animation: spin 15s linear infinite;
 			}
 			body {
-				cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100,10 C110,50 150,90 190,100 C150,110 110,150 100,190 C90,150 50,110 10,100 C50,90 90,50 100,10Z' fill='fffffff'/></svg>"),
+				cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100,10 C110,50 150,90 190,100 C150,110 110,150 100,190 C90,150 50,110 10,100 C50,90 90,50 100,10Z' fill='%23222222'/></svg>"),
 					auto;
 			}
 		</style>
 	</head>
 	<body class="bg-timberwolf min-h-screen">
-		<div class="h-[50vh] bg-rufous overflow-clip flex">
-			<div
-				class="self-start whitespace-nowrap m-2 text-timberwolf font-[RobotoMono]"
-			>
-				<h3>Alex Chiquillo</h3>
+		<div class="h-[50vh] bg-rufous flex flex-col">
+			<div class="whitespace-nowrap flex w-full">
+				<h3 class="self-start m-2 text-timberwolf font-[RobotoMono]">
+					Alex Chiquillo
+				</h3>
 			</div>
 			<div
-				class="pl-12 text-timberwolf flex self-end gap-12 w-max animate-marquee pb-8"
+				class="text-timberwolf flex overflow-hidden select-none gap-[2rem] pb-8 mt-auto"
 			>
-				<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
-					COMPUTER ENGINEER
-				</h1>
-				<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
-					COMPUTER ENGINEER
-				</h1>
-				<h1
-					class="font-[Orbitron] whitespace-nowrap text-8xl aria-hidden:"
+				<div
+					class="flex shrink-0 items-center justify-between gap-[2rem] min-w-full animate-marquee"
 				>
-					COMPUTER ENGINEER
-				</h1>
-				<h1
-					class="font-[Orbitron] whitespace-nowrap text-8xl aria-hidden:"
+					<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
+						COMPUTER ENGINEER
+					</h1>
+					<img src="/icons/wheel.svg" alt="" class="size-20 animate-spin">
+					<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
+						COMPUTER ENGINEER
+					</h1>
+					<img src="/icons/wheel.svg" alt="" class="size-20 animate-spin">
+				</div>
+				<div
+					class="flex shrink-0 items-center justify-between gap-[2rem] min-w-full animate-marquee"
 				>
-					COMPUTER ENGINEER
-				</h1>
+					<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
+						COMPUTER ENGINEER
+					</h1>
+					<img src="/icons/wheel.svg" alt="" class="size-20 animate-spin">
+					<h1 class="font-[Orbitron] whitespace-nowrap text-8xl">
+						COMPUTER ENGINEER
+					</h1>
+					<img src="/icons/wheel.svg" alt="" class="size-20 animate-spin">
+				</div>
 			</div>
 		</div>
 		<div class="flex mt-6">
 			<div class="w-1/2"></div>
 			<div class="w-1/2">
-				<p class="text-pretty font-[RobotoMono] text-[clamp(1.5rem,2vw,2rem)]">
+				<p
+					class="text-pretty font-[RobotoMono] text-[clamp(1.5rem,2vw,2rem)]"
+				>
 					As a creative developer, I focus on both design and
 					development — allowing me to work on projects from concept
 					until the very moment we hit publish. Unique layouts,
