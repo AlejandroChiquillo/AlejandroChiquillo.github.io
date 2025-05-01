@@ -9,9 +9,14 @@ import "../styles/global.css";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" />
 		<title>Alex Chiquillo</title>
 	</head>
 	<body class="bg-timberwolf m-0 p-0">
+		<img
+		 	src="/icons/cursor_star.svg" class="flair flair--3 w-[32px] h-[32px] fixed top-0 left-0 pointer-events-none z-10"
+		>
+		</img>
 		<div class="min-h-screen flex flex-col">
 			<main class="flex-1">
 				<div class="h-[45vh] bg-rufous flex flex-col">
@@ -49,16 +54,44 @@ import "../styles/global.css";
 				class="h-24 bg-midnight w-full flex items-center justify-center mt-9"
 			>
 				<div>
-					<p id="year-cr" class="text-platinum">
-						© 2025 - All Rights Reserved
+					<p class="text-platinum">
+						<a
+							rel="Work"
+							href="https://github.com/AlejandroChiquillo/AlejandroChiquillo.github.io"
+							target="_blank">This work</a
+						>
+						<span id="year-cr"></span>
+						by <a
+							rel="creator"
+							href="https://github.com/AlejandroChiquillo"
+							target="_blank">Alex Chiquillo</a
+						> - All Rights Reserved
 					</p>
 				</div>
 			</footer>
 		</div>
+		<script>
+			document.getElementById("year-cr")!.innerText =
+				"© " + new Date().getFullYear();
+		</script>
+		<script>
+			import { gsap } from "gsap";
+
+			gsap.set(".flair", { xPercent: -50, yPercent: -50 });
+
+			let xTo = gsap.quickTo(".flair", "x", {
+					duration: 0.6,
+					ease: "power3",
+				}),
+				yTo = gsap.quickTo(".flair", "y", {
+					duration: 0.6,
+					ease: "power3",
+				});
+
+			window.addEventListener("mousemove", (e) => {
+				xTo(e.clientX);
+				yTo(e.clientY);
+			});
+		</script>
 	</body>
 </html>
-
-<script>
-	document.getElementById("year-cr")!.innerText =
-		"© " + new Date().getFullYear() + " - All Rights Reserved";
-</script>
