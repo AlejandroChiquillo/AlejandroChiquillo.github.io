@@ -1,4 +1,5 @@
 ---
+import FollowCursor from "../components/FollowCursor.astro";
 import Marquee from "../components/Marquee.astro";
 import "../styles/global.css";
 ---
@@ -13,85 +14,61 @@ import "../styles/global.css";
 		<title>Alex Chiquillo</title>
 	</head>
 	<body class="bg-timberwolf m-0 p-0">
-		<img
-		 	src="/icons/cursor_star.svg" class="flair flair--3 w-[32px] h-[32px] fixed top-0 left-0 pointer-events-none z-10"
-		>
-		</img>
-		<div class="min-h-screen flex flex-col">
-			<main class="flex-1">
-				<div class="h-[45vh] bg-rufous flex flex-col">
-					<div class="whitespace-nowrap flex w-full">
-						<h3
-							class="self-start m-2 text-timberwolf font-[RobotoMono]"
-						>
-							Alex Chiquillo
-						</h3>
-					</div>
-					<Marquee />
+		<FollowCursor />
+		<header>
+			<div class="h-[45vh] bg-rufous flex flex-col">
+				<div class="flex w-full p-4 fixed top-0 left-0">
+					<h3 class="self-start text-timberwolf font-[RobotoMono]">
+						Alex Chiquillo
+					</h3>
 				</div>
-				<div class="flex mt-9">
-					<div class="w-1/2">
-						<h2
-							class="font-[RobotoMono] text-[clamp(1.2rem,2vw,2rem)] px-5 underline underline-offset-3 decoration-2"
-						>
-							About me
-						</h2>
-					</div>
-					<div class="w-1/2">
-						<p
-							class="text-pretty font-[RobotoMono] text-[clamp(1.2rem,2vw,2rem)] px-3"
-						>
-							As a creative developer, I focus on both design and
-							development — allowing me to work on projects from
-							concept until the very moment we hit publish. Unique
-							layouts, interactions and great typography is what I
-							focus on when working on websites.
-						</p>
-					</div>
+				<Marquee />
+			</div>
+		</header>
+		<main class="flex-1">
+			<div class="flex mt-9">
+				<div class="w-1/2">
+					<h2
+						class="font-[RobotoMono] text-[clamp(1.2rem,3vw,2rem)] px-5 underline underline-offset-3 decoration-2"
+					>
+						About me
+					</h2>
 				</div>
-			</main>
-			<footer
-				class="h-24 bg-midnight w-full flex items-center justify-center mt-9"
-			>
-				<div>
-					<p class="text-platinum">
-						<a
-							rel="Work"
-							href="https://github.com/AlejandroChiquillo/AlejandroChiquillo.github.io"
-							target="_blank">This work</a
-						>
-						<span id="year-cr"></span>
-						by <a
-							rel="creator"
-							href="https://github.com/AlejandroChiquillo"
-							target="_blank">Alex Chiquillo</a
-						> - All Rights Reserved
+				<div class="w-1/2">
+					<p
+						class="text-pretty font-[RobotoMono] text-[clamp(1.2rem,3vw,2rem)] px-3"
+					>
+						As a creative developer, I focus on both design and
+						development — allowing me to work on projects from
+						concept until the very moment we hit publish. Unique
+						layouts, interactions and great typography is what I
+						focus on when working on websites.
 					</p>
 				</div>
-			</footer>
-		</div>
-		<script>
-			document.getElementById("year-cr")!.innerText =
-				"© " + new Date().getFullYear();
-		</script>
-		<script>
-			import { gsap } from "gsap";
-
-			gsap.set(".flair", { xPercent: -50, yPercent: -50 });
-
-			let xTo = gsap.quickTo(".flair", "x", {
-					duration: 0.6,
-					ease: "power3",
-				}),
-				yTo = gsap.quickTo(".flair", "y", {
-					duration: 0.6,
-					ease: "power3",
-				});
-
-			window.addEventListener("mousemove", (e) => {
-				xTo(e.clientX);
-				yTo(e.clientY);
-			});
-		</script>
+			</div>
+		</main>
+		<footer
+			class="h-24 bg-midnight w-full flex items-center justify-center mt-9"
+		>
+			<div>
+				<p class="text-platinum">
+					<a
+						rel="Work"
+						href="https://github.com/AlejandroChiquillo/AlejandroChiquillo.github.io"
+						target="_blank">This work</a
+					>
+					<span id="year-cr"></span>
+					by <a
+						rel="creator"
+						href="https://github.com/AlejandroChiquillo"
+						target="_blank">Alex Chiquillo</a
+					> - All Rights Reserved
+				</p>
+			</div>
+		</footer>
 	</body>
+	<script>
+		document.getElementById("year-cr")!.innerText =
+			"© " + new Date().getFullYear();
+	</script>
 </html>
